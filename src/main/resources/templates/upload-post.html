@@ -1,77 +1,78 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Today: Neuer Post</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Today: Neuer Post</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
 </head>
 <body>
 
 <!-- HEADER -->
 <section class="section">
-  <div class="container">
-    <h1 class="title mb-0" style="display: inline-block">
-      Today: Sonnenstunden.
-    </h1>
+    <div class="container">
+        <h1 class="title mb-0" style="display: inline-block">
+            Today: Sonnenstunden.
+        </h1>
 
-    <a class="button is-primary" style="float: right" href="/">
-      <strong>Zurück</strong>
-    </a>
+        <a class="button is-primary" style="float: right" href="/">
+            <strong>Zurück</strong>
+        </a>
 
-    <p class="subtitle">
-      Ein Tagebuch für dein Hochbeet.
-    </p>
-  </div>
+        <p class="subtitle">
+            Ein Tagebuch für dein Hochbeet.
+        </p>
+    </div>
 </section>
 
 <section class="section">
-  <div class="container">
-    <div th:if="${message}" class="notification is-info" th:text="${message}"/>
+    <div class="container">
+        <div th:if="${message}" class="notification is-info" th:text="${message}"/>
 
-    <h2 class="title">Neuer Post</h2>
-    <p class="subtitle">Heute viel Sonne gehabt?</p>
+        <h2 class="title">Neuer Post</h2>
+        <p class="subtitle">Heute viel Sonne gehabt?</p>
 
-    <form action="/upload-post" method="post" enctype="multipart/form-data">
-      <div class="field">
-        <label class="label">Sonnenstunden</label>
-        <div class="control">
-          <input class="input" name="sunshineDuration" type="number" min="0" max="24" required>
-        </div>
-      </div>
+        <form action="/upload-post" method="post" enctype="multipart/form-data">
+            <div class="field">
+                <label class="label">Sonnenstunden</label>
+                <div class="control">
+                    <input class="input" name="sunshineDuration" type="number" min="0" max="24" required>
+                </div>
+            </div>
 
-      <div class="field">
-        <label class="label">Titel</label>
-        <div class="control">
-          <input class="input" name="title" type="text" placeholder="Lorem ipsum" required>
-        </div>
-      </div>
+            <div class="field">
+                <label class="label">Titel</label>
+                <div class="control">
+                    <input class="input" name="title" type="text" placeholder="Lorem ipsum" required>
+                </div>
+            </div>
 
-      <div class="field">
-        <label class="label">Tagebucheintrag</label>
-        <div class="control">
-          <textarea class="textarea" name="text" type="text" rows="20" placeholder="Lorem ipsum dolor" required></textarea>
-        </div>
-      </div>
+            <div class="field">
+                <label class="label">Tagebucheintrag</label>
+                <div class="control">
+                    <textarea class="textarea" name="text" type="text" rows="20" placeholder="Lorem ipsum dolor"
+                              required></textarea>
+                </div>
+            </div>
 
-      <div class="field file">
-        <label class="file-label">
-          <input class="file-input" name="image" type="file" accept="image/png, image/jpeg" required>
-          <span class="file-cta">
+            <div class="field file">
+                <label class="file-label">
+                    <input class="file-input" name="image" type="file" accept="image/png, image/jpeg" required>
+                    <span class="file-cta">
             <span class="file-label">
                 Bild auswählen
             </span>
           </span>
-        </label>
-      </div>
+                </label>
+            </div>
 
-      <div class="field" style="display: flex; justify-content: center">
-        <div class="control">
-          <button class="button is-primary is-medium">Post speichern</button>
-        </div>
-      </div>
-    </form>
-  </div>
+            <div class="field" style="display: flex; justify-content: center">
+                <div class="control">
+                    <button class="button is-primary is-medium">Post speichern</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
 </body>
 </html>

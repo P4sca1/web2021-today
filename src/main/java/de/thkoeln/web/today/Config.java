@@ -7,14 +7,14 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "today")
 public class Config {
 
-  public String imagePath;
+    public String imagePath;
 
-  public String getImagePath() {
-    return imagePath;
-  }
+    public String getImagePath() {
+        return imagePath;
+    }
 
-  public void setImagePath(String imagePath) {
-    this.imagePath = imagePath;
-  }
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 
 }

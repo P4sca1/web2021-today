@@ -28,43 +28,43 @@
 <!-- POST LIST -->
 <section class="section">
     <div class="container">
-      <div th:if="${#lists.isEmpty(posts)}" class="notification is-info">
-        Es sind noch keine Posts vorhanden.
-      </div>
+        <div th:if="${#lists.isEmpty(posts)}" class="notification is-info">
+            Es sind noch keine Posts vorhanden.
+        </div>
 
-      <!-- POST ENTRY -->
-      <div th:each="post :${posts}" class="card mb-6">
-          <div class="columns">
-              <div class="column is-one-quarter">
-                  <div class="card-image pl-3 pr-3">
-                      <figure clas="image is-square">
-                          <img th:src="${post.image}" style="width: 100%">
-                      </figure>
-                  </div>
-              </div>
+        <!-- POST ENTRY -->
+        <div th:each="post :${posts}" class="card mb-6">
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    <div class="card-image pl-3 pr-3">
+                        <figure clas="image is-square">
+                            <img th:src="${post.image}" style="width: 100%">
+                        </figure>
+                    </div>
+                </div>
 
-              <div class="column">
-                  <div class="card-content">
-                      <h3 th:text="${post.title}" class="title is-3 mb-0"></h3>
-                      <p th:text="${post.createdAt}" class="mb-4 is-italic"></p>
-                      <p th:text="${#strings.abbreviate(post.text,500) + '...'}"></p>
-                  </div>
+                <div class="column">
+                    <div class="card-content">
+                        <h3 th:text="${post.title}" class="title is-3 mb-0"></h3>
+                        <p th:text="${post.createdAt}" class="mb-4 is-italic"></p>
+                        <p th:text="${#strings.abbreviate(post.text,500) + '...'}"></p>
+                    </div>
 
-                  <div class="card-footer">
-                      <a th:href="${'posts/' + post.id}" class="card-footer-item">Mehr lesen</a>
-                  </div>
-              </div>
-          </div>
-      </div>
+                    <div class="card-footer">
+                        <a th:href="${'posts/' + post.id}" class="card-footer-item">Mehr lesen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- STATISTICS -->
 <section class="section">
-  <div class="container">
-    <h3 class="title is-3 mb-0">Sonnenstunden im Laufe der Zeit</h3>
-    <canvas id="chart" width="400" height="100"></canvas>
-  </div>
+    <div class="container">
+        <h3 class="title is-3 mb-0">Sonnenstunden im Laufe der Zeit</h3>
+        <canvas id="chart" width="400" height="100"></canvas>
+    </div>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

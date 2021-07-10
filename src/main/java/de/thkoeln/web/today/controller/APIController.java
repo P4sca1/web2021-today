@@ -19,29 +19,29 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @RequestMapping("/api/v1")
 public class APIController {
 
-  @Autowired
-  private PostRepository postRepository;
+    @Autowired
+    private PostRepository postRepository;
 
-  @GetMapping("/posts")
-  public Iterable<Post> getAllPosts() {
-    return postRepository.findAll();
-  }
-
-  @GetMapping("/posts/{id}")
-  public Post findOnePost(@PathVariable Long id) {
-    return postRepository.findById(id)
-      .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Unable to find post"));
-  }
-
-  @GetMapping("/statistics")
-  public List<StatisticEntry> getStatistics() {
-    List<StatisticEntry> statistics = new ArrayList<>();
-
-    for (Post post : postRepository.findAll()) {
-      statistics.add(new StatisticEntry(post.getCreatedAt(), post.getSunshineDuration()));
+    @GetMapping("/posts")
+    public Iterable<Post> getAllPosts() {
+        return postRepository.findAll();
     }
 
-    return statistics;
-  }
+    @GetMapping("/posts/{id}")
+    public Post findOnePost(@PathVariable Long id) {
+        return postRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, "Unable to find post"));
+    }
+
+    @GetMapping("/statistics")
+    public List<StatisticEntry> getStatistics() {
+        List<StatisticEntry> statistics = new ArrayList<>();
+
+        for (Post post : postRepository.findAll()) {
+            statistics.add(new StatisticEntry(post.getCreatedAt(), post.getSunshineDuration()));
+        }
+
+        return statistics;
+    }
 
 }
